@@ -100,7 +100,7 @@ jobs:
 
             - name: "[Release] Fetch release"
               id: release
-              if: ${{ !inputs.nightly && inputs.version != 'develop' }}
+              if: ${{ false }}
               uses: cardinalby/git-get-release-action@cedef2faf69cb7c55b285bad07688d04430b7ada # v1
               env:
                   GITHUB_TOKEN: ${{ github.token }}
@@ -108,7 +108,7 @@ jobs:
                   tag: v${{ steps.package.outputs.version }}
 
             - name: "[Release] Write changelog"
-              if: ${{ !inputs.nightly && inputs.version != 'develop' }}
+              if: ${{ false }}
               run: |
                   TIME=$(date -d "$PUBLISHED_AT" -R)
                   echo "element-desktop ($VERSION) default; urgency=medium" >> changelog.Debian
