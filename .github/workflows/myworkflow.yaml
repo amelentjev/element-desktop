@@ -47,7 +47,6 @@ jobs:
         uses: ./.github/workflows/build_windows.yaml
         secrets: inherit
         with:
-            sign: false
             arch: ${{ matrix.arch }}
             version: ${{ needs.prepare.outputs.nightly-version }}
 
